@@ -49,11 +49,7 @@ class RouteProvider implements ControllerProviderInterface
         $controllers->get('/{view}', function(Application $app, $view) {
             $fileName = $view . $app['tc.config']->micro->view_file_extension;
             try {
-                if (!isset($this->content[$view])) {
-                    $data = [];
-                } else {
-                    $data = $this->content[$view];
-                }
+                $data = (isset($this->content[$view])) ? $this->content[$view] : [];
 
                 return $app['twig']->render($fileName, $data);
             } catch (Exception $e) {
