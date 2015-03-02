@@ -3,7 +3,7 @@
 namespace Deniaz\Splendid;
 
 use Deniaz\Splendid\Provider\RouteProvider;
-use Deniaz\Terrific\Twig\Extension\ComponentExtension;
+use Deniaz\Terrific\Twig\Extension\TerrificExtension;
 use Silex\Application as SilexApp;
 use Silex\Provider\TwigServiceProvider;
 
@@ -49,7 +49,7 @@ class Application extends SilexApp
                 $paths[] = $app['root_dir'] . $component->path;
             }
 
-            $twig->addExtension(new ComponentExtension($paths, $app['tc.config']->micro->view_file_extension));
+            $twig->addExtension(new TerrificExtension($paths, $app['tc.config']->micro->view_file_extension));
             return $twig;
         }));
 
