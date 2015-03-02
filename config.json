@@ -1,0 +1,16 @@
+{
+    "assets": {},
+    "micro": {
+        "components": {
+            "module": {
+                "path": "components/modules"
+            },
+            "element": {
+                "path": "components/elements"
+            }
+        },
+        "view_file_extension": ".html.twig",
+        "view_directory": "views",
+        "view_partial_directory": "views/_partials"
+    }
+}

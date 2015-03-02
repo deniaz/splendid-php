@@ -1,0 +1,20 @@
+.DS_Store
+Thumbs.db
+vendor
+
+_.*
+.project
+.idea
+.cache
+.sass-cache
+.settings
+.config
+.buildpath
+.metadata
+.tmp*
+*.prefs
+.deployables
+atlassian-ide-plugin.xml
+
+# allow
+!.gitkeep
