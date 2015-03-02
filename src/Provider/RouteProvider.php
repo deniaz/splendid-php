@@ -38,11 +38,12 @@ class RouteProvider implements ControllerProviderInterface
             $fileName = $view . $app['tc.config']->micro->view_file_extension;
             try {
                 if (!isset($this->content[$view])) {
-                    throw new DomainException(sprintf('No data configured for view %1.', $view));
+                    $data = [];
+                } else {
+                    $data = $this->content[$view];
                 }
 
-                $data = $this->content[$view];
-                return $app['twig']->render($fileName, $this->content[$view]);
+                return $app['twig']->render($fileName, $data);
             } catch (Exception $e) {
                 throw new NotFoundHttpException($e->getMessage());
             }
