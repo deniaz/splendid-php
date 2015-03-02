@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$app = new Application();
+$app = new Application(__DIR__);
 
 // Implement your own endpoints here
 //$app->get('/service/posts', function(Request $request) use ($app) {

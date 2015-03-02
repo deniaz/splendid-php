@@ -12,16 +12,9 @@
             "email": "robert.vogt@namics.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "Deniaz\\Splendid\\": "src/"
-        }
-    },
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4",
-        "silex/silex": "~1.2",
-        "twig/twig": "~1.18.0",
-        "symfony/finder": "~3.0-dev",
-        "deniaz/terrific-twig": "dev-master"
+        "deniaz/terrific-silex": "dev-master"
     }
 }
