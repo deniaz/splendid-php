@@ -39,7 +39,12 @@ class Application extends SilexApp
             : null
         ;
 
-        $this->register(new TwigServiceProvider(), ['twig.path' => $this->rootDir . 'views']);
+        $this->register(
+            new TwigServiceProvider(),
+            [
+                'twig.path' => $this->rootDir . $this['tc.config']->micro->view_directory
+            ]
+        );
 
         $app['twig'] = $this->share($this->extend('twig', function($twig, $app) {
             $paths = [
