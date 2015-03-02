@@ -1,4 +1,4 @@
-# Terrific Twig
+# Splendid PHP
 
 Splendid PHP is an alternative to the Node.js based Splendid. It's actively kept in sync with the changes and the 
 `generator-splendid` can be applied in Splendid PHP as well.
