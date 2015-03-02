@@ -12,11 +12,23 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 use \Twig_Error_Loader;
 use \DomainException;
 
+/**
+ * Tries to render template from views directory.
+ *
+ * Class RouteProvider
+ * @package Deniaz\Splendid\Provider
+ */
 class RouteProvider implements ControllerProviderInterface
 {
+    /**
+     * @var array Mocked Content
+     */
     private $content;
 
-    function __construct($content)
+    /**
+     * @param array $content Mocked Content
+     */
+    function __construct($content = [])
     {
         $this->content = $content;
     }

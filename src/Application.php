@@ -7,10 +7,26 @@ use Deniaz\Terrific\Twig\Extension\ComponentExtension;
 use Silex\Application as SilexApp;
 use Silex\Provider\TwigServiceProvider;
 
+/**
+ * Extends Silex Application with some must-have configurations.
+ *
+ * @package Deniaz\Splendid
+ * @author Robert Vogt <robert.vogt@namics.com>
+ */
 class Application extends SilexApp
 {
+    /**
+     * @var string Splendid Root Directory
+     */
     private $rootDir;
 
+    /**
+     * Instantiate a new Application and configures Terrific-style routes and Twig.
+     *
+     * Objects and parameters can be passed as argument to the constructor.
+     *
+     * @param array $values The parameters or objects.
+     */
     public function __construct(array $values = [])
     {
         parent::__construct($values);
@@ -49,7 +65,7 @@ class Application extends SilexApp
     }
 
     /**
-     * @return mixed
+     * @return string Splendid Root Directory
      */
     public function getRootDir()
     {
