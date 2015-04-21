@@ -15,8 +15,36 @@ $ composer create-project deniaz/splendid-php project-name
 $ cd project-name
 $ php -S localhost:8080 -t . index.php
 ```
-## Requirements
 
+## Custom Routes
+Splendid embraces Silex. Therefore any Silex feature is usable within Splendid. To add a custom route you can do 
+something like this:
+
+```php
+$app = new Application(__DIR__);
+
+$app->get('/service/posts', function(Request $request) use ($app) {
+    $response = new Response();
+    $response->setStatusCode(200);
+    $response->headers->set('Content-Type', 'application/json');
+    $response->setContent(json_encode([
+        [
+            'id' => 1,
+            'title' => 'Hello World'
+        ],
+        [
+            'id' => 2,
+            'title' => 'Hello Universe'
+        ]
+    ]));
+
+    return $response;
+});
+
+$app->run();
+```
+
+## Requirements
 The following versions of PHP are supported by this version.
 
 + PHP 5.4

@@ -2,30 +2,15 @@
 
 namespace Deniaz\Splendid;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 require_once __DIR__ . '/vendor/autoload.php';
 
-$app = new Application(__DIR__);
+/**
+ * Prevent Silex form serving static files when served with PHP's built-in webserver.
+ * @see http://silex.sensiolabs.org/doc/web_servers.html#php-5-4
+ */
+$filename = __DIR__.preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
+if (php_sapi_name() === 'cli-server' && is_file($filename)) {
+    return false;
+}
 
-// Implement your own endpoints here
-//$app->get('/service/posts', function(Request $request) use ($app) {
-//    $response = new Response();
-//    $response->setStatusCode(200);
-//    $response->headers->set('Content-Type', 'application/json');
-//    $response->setContent(json_encode([
-//        [
-//            'id' => 1,
-//            'title' => 'Hello World'
-//        ],
-//        [
-//            'id' => 2,
-//            'title' => 'Hello Universe'
-//        ]
-//    ]));
-//
-//    return $response;
-//});
-
-$app->run();
+(new Application(__DIR__))->run();
